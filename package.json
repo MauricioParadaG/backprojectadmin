@@ -1,0 +1,20 @@
+{
+  "name": "mernprojectback",
+  "version": "1.0.0",
+  "description": "MERN API for mernprojectback",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/.",
+    "dev": "nodemon src/."
+  },
+  "author": "Mauricio Parada",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.28"
+  }
+}
