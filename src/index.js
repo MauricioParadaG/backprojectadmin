@@ -22,6 +22,7 @@ app.get('/', (req, res) => {
 
 // Import Routes
 app.use('/api/users', require('./routes/users.routes'));
+app.use('/api/auth', require('./routes/auth.routes'));
 
 
 // Starting server / app
