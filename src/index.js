@@ -1,11 +1,15 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const cors = require('cors');
 
 // Initializations
 const app = express();
 
 // Connect to database
 connectDB();
+
+// Cors required for connecting back and front
+app.use(cors());
 
 // enabling express to read json, express.json 
 app.use(express.json({extended: true}));
