@@ -48,8 +48,22 @@ exports.loginUser = async (req, res) => {
         //res.json({ msg: 'User created successfully'});
     } catch (error) {
         console.log(error);
-        res.status(400).send('There was a login error')
+        res.status(400).send('There was a login error');
     }
     
 };
+
+
+// Controller getting the authenticated user
+
+exports.authenticatedUser = async (req, res) => {
+    try {
+        const user = User.findById({email: email});
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ msg: 'There was an error'});
+    }
+
+}
 
