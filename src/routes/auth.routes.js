@@ -21,5 +21,11 @@ router.post('/',
 
 );
 
+router.get('/', 
+    auth, 
+    authController.authenticatedUser
+);
+
+
 
 module.exports = router;

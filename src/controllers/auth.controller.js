@@ -58,7 +58,8 @@ exports.loginUser = async (req, res) => {
 
 exports.authenticatedUser = async (req, res) => {
     try {
-        const user = User.findById({email: email});
+        const user = await User.findById(req.newUser.id);
+        res.json({user});
 
     } catch (error) {
         console.log(error);
