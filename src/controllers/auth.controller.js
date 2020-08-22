@@ -35,7 +35,7 @@ exports.loginUser = async (req, res) => {
         };
 
 
-        jsonwebtoken.sign(payload, process.env.SECRECT, {
+        jsonwebtoken.sign(payload, process.env.SECRET, {
             expiresIn: 3600
         }, (error, token) => {
             if(error) throw error;

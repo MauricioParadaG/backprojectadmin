@@ -15,15 +15,10 @@ router.post('/',
 );
 
 // get the authenticated user with the token
-router.post('/', 
-    auth, 
-    authController.authenticatedUser
-
-);
-
 router.get('/', 
     auth, 
     authController.authenticatedUser
+
 );
 
 
