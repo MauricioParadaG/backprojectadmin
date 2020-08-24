@@ -29,14 +29,14 @@ exports.loginUser = async (req, res) => {
 
         // Create and sign Jsonwebtoken
         const payload = {
-            user: {
+            newUser: {
                 id: user.id
             }
         };
 
 
         jsonwebtoken.sign(payload, process.env.SECRET, {
-            expiresIn: 3600
+            expiresIn: 360000
         }, (error, token) => {
             if(error) throw error;
 
@@ -58,12 +58,12 @@ exports.loginUser = async (req, res) => {
 
 exports.authenticatedUser = async (req, res) => {
     try {
-        const user = await User.findById(req.newUser.id);
+        const user = await User.findById(req.newUser.id).select('-password');
         res.json({user});
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({ msg: 'There was an error'});
+        res.status(500).json({ msg: 'There was an error, auth.controller.js'});
     }
 
 }

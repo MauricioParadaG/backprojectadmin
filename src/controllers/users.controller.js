@@ -40,7 +40,7 @@ exports.signupUser = async (req, res) => {
 
 
         jsonwebtoken.sign(payload, process.env.SECRET, {
-            expiresIn: 3600
+            expiresIn: 360000
         }, (error, token) => {
             if(error) throw error;
 
@@ -51,7 +51,7 @@ exports.signupUser = async (req, res) => {
 
         //res.json({ msg: 'User created successfully'});
     } catch (error) {
-        console.log(error);
+       // console.log(error);
         res.status(400).send('There was an error')
     }
     
