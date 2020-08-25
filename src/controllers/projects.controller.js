@@ -2,9 +2,7 @@ const Project = require('../models/Project');
 const { validationResult } = require('express-validator');
 
 exports.createProject = async (req, res) => {
-
-    // If there are errors in projects.route.js
-    
+    //are there are errors in projects.route.js validation?
     const errors = validationResult(req);
     if( !errors.isEmpty() ) {
         return res.status(400).json({errors: errors.array() })
