@@ -72,7 +72,6 @@ exports.updateTask = async (req, res ) => {
         // Extracting the project and checking if it exist
         const { project, name, state } = req.body;
 
-
         // Does the task exist?
         let task = await Task.findById(req.params.id);
 
@@ -80,8 +79,8 @@ exports.updateTask = async (req, res ) => {
             return res.status(404).json({msg: 'This task does not exist'});
         }
 
-        // Extracting the project
-        const existeProyecto = await Proyecto.findById(project);
+        // Extracting the project as I already know that it exist, because there is a task. 
+        const isthereaProject = await Project.findById(project);
 
         // Checking if the actual project has the auth owner
         if(isthereaProject.owner.toString() !== req.newUser.id ) {
@@ -100,7 +99,7 @@ exports.updateTask = async (req, res ) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).send('There was an error while updating the task')
+        res.status(500).send('There was an error while updating the task');
     }
 }
 
