@@ -3,7 +3,7 @@ const jsonwebtoken = require('jsonwebtoken');
 module.exports = function(req, res, next) {
     // Reading token from header
     const token = req.header('x-auth-token');
-    console.log(token);
+    //console.log(token);
     // Checking if there is no token
     
     if(!token) {

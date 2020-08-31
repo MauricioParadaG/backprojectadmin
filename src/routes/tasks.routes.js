@@ -15,8 +15,6 @@ router.post('/',
     taskController.createTask
 );
 
-
-
 // Get all the tasks of a project
 router.get('/',
     auth,

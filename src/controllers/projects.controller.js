@@ -1,4 +1,5 @@
 const Project = require('../models/Project');
+const Task = require('../models/Task');
 const { validationResult } = require('express-validator');
 
 exports.createProject = async (req, res) => {
@@ -101,6 +102,8 @@ exports.deleteProject = async (req, res ) => {
             return res.status(401).json({msg: 'User not authorized'});
         }
 
+        // First delete the task of the project, and then delete the project
+        await Task.deleteMany({ project: req.params.id });
         // Delete the project by id
         await Project.findOneAndRemove({ _id : req.params.id });
         res.json({ msg: 'Project deleted '})

@@ -44,11 +44,11 @@ exports.getTasks = async (req, res) => {
 
         try {
             // Extracting the project and checking if it exist
-            const { project } = req.body;
+            const { project } = req.query;
 
             const isthereaProject = await Project.findById(project);
             if(!isthereaProject) {
-                return res.status(404).json({msg: 'Project not found'});
+                return res.status(404).json({msg: 'Project not found'+ project});
             }
 
             // Checking if the actual project has the auth owner
@@ -108,7 +108,7 @@ exports.updateTask = async (req, res ) => {
 exports.deleteTask = async (req, res) => {
     try {
         // Extracting the project and checking if it exist
-        const { project  } = req.body;
+        const { project } = req.query;
 
         // Does the task exist or not?
         let task = await Task.findById(req.params.id);
