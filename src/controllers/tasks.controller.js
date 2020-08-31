@@ -48,7 +48,7 @@ exports.getTasks = async (req, res) => {
 
             const isthereaProject = await Project.findById(project);
             if(!isthereaProject) {
-                return res.status(404).json({msg: 'Project not found'+ project});
+                return res.status(404).json({msg: 'Project not found'});
             }
 
             // Checking if the actual project has the auth owner
